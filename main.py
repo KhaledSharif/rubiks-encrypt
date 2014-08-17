@@ -19,7 +19,6 @@ iterations = range(0, 1000, increment)
 encrypted_image = numpy.array([x[:] for x in [[0] * 1000] * 1000])
 decrypted_image = numpy.array([x[:] for x in [[0] * 1000] * 1000])
 
-
 for X in iterations:
     for Y in iterations:
         cube = rubiks.Cube(list(img[X:X + increment, Y:Y + increment]))
@@ -27,7 +26,11 @@ for X in iterations:
         encrypted_image[X:X + increment, Y:Y + increment] = cube.matrix
         encrypt.decrypt(cube, moves)
         decrypted_image[X:X + increment, Y:Y + increment] = cube.matrix
-'''
+
+img = img.astype(numpy.uint16)
+encrypted_image = encrypted_image.astype(numpy.uint16)
+decrypted_image = decrypted_image.astype(numpy.uint16)
+
 # Plot all three figures showing the original, encrypted, and decrypted
 f1 = plt.figure()
 plt.imshow(img, cmap='gray')
@@ -42,7 +45,7 @@ plt.imshow(decrypted_image, cmap='gray')
 plt.title("Decrypted")
 
 plt.show()
-'''
+
 # Assert that the dimensions of original and decrypted are equal
 assert img.__len__() == decrypted_image.__len__()
 assert img.__len__() == decrypted_image[0].__len__()
