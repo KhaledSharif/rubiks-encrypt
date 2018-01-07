@@ -1,6 +1,4 @@
-=======================================
-rubiks-encrypt: Rubiks Cube Encryption
-=======================================
+# rubiks-encrypt: Rubiks Cube Encryption
 
 <img src="http://i.imgur.com/Y7ZFCM9.jpg" />
 
